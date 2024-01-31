@@ -160,7 +160,7 @@ function H.validate_search_options(opts)
     opts = opts or {}
     vim.validate({
         opts = { opts, "table" },
-        ["opts.feature"] = { opts.hidden, "string", true },
+        ["opts.feature"] = { opts.feature, "string", true },
         ["opts.feature_opts"] = { opts.feature_opts, "table", true },
         ["opts.follow"] = { opts.follow, "boolean", true },
         ["opts.hidden"] = { opts.hidden, "boolean", true },
