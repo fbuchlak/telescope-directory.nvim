@@ -45,10 +45,24 @@ local H = {}
 ---@field search_options telescope-directory.SearchOptions
 ---@field features telescope-directory.Feature[]
 
+local loaded = false
+
 ---@param config? telescope-directory.ExtensionConfig
 function TelescopeDirectory.setup(config)
-    config = H.setup_config(config)
-    State.config = config
+    if not loaded then
+        if 0 ~= vim.tbl_count(config or {}) then
+            loaded = true
+        end
+
+        config = H.setup_config(config)
+        State.config = config
+    elseif 0 ~= vim.tbl_count(config or {}) then
+        vim.notify("telescope-directory.nvim was already loaded!", vim.log.levels.WARN)
+        vim.notify(
+            "Do not call setup function if you want to load this plugin as telescope extension",
+            vim.log.levels.WARN
+        )
+    end
 end
 
 ---@param opts? telescope-directory.SearchOptions

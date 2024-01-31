@@ -12,9 +12,14 @@ local function get_default_exports()
     return exports
 end
 
+local extension_loaded = false
+
 return require("telescope").register_extension({
     setup = function(ext_opts)
-        require("telescope-directory").setup(ext_opts)
+        if not extension_loaded then
+            extension_loaded = true
+            require("telescope-directory").setup(ext_opts)
+        end
     end,
     exports = get_default_exports(),
 })
