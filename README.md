@@ -23,7 +23,7 @@ Search for directories with telescope and perform *any* action.
 ### Dependencies
 
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) is required
-- [fd](sharkdp/fd) (preferred) or `find` is required
+- [fd](https://github.com/sharkdp/fd) (preferred) or `find` is required
 
 ### Telescope extension
 
