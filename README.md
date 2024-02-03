@@ -189,7 +189,7 @@ require("telescope-directory").setup({
         {
             name = "open_in_file_explorer",
             callback = function(dirs, feature_opts)
-                local dir = dirs[0] -- open single directory (ignore multiple selection)
+                local dir = dirs[1] -- open single directory (ignore multiple selection)
 
                 -- 1. netrw
                 vim.cmd(("Vex %s"):format(dir))

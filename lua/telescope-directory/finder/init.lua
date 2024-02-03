@@ -29,10 +29,12 @@ end
 
 ---@return telescope-directory.FinderCmd
 function H.get_default_finder_cmd()
-    for executable, _ in pairs(cmds) do
-        if 1 == vim.fn.executable(executable) then
-            return executable
-        end
+    if 1 == vim.fn.executable("fd") then
+        return "fd"
+    elseif 1 == vim.fn.executable("fdfind") then
+        return "fdfind"
+    elseif 1 == vim.fn.executable("find") then
+        return "find"
     end
 
     return nil
